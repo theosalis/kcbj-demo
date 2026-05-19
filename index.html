@@ -47,107 +47,149 @@
     border-bottom: 1px solid var(--border);
   }
 
-  .logo-kcbj {
-    height: 40px;
-    width: auto;
-  }
-
-  .logo-cevi {
-    height: 18px;
-    width: auto;
-    opacity: 0.85;
-  }
+  .logo-kcbj { height: 40px; width: auto; }
+  .logo-cevi { height: 18px; width: auto; opacity: 0.85; }
 
   main {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 64px 24px;
+    padding: 48px 24px;
   }
 
   .card {
     width: 100%;
-    max-width: 520px;
+    max-width: 480px;
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.04);
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.04), 0 4px 16px -4px rgb(0 0 0 / 0.04);
   }
 
   .card-header {
-    padding: 40px 40px 32px;
+    padding: 36px 36px 28px;
     text-align: center;
     border-bottom: 1px solid var(--border);
   }
 
+  .icon-badge {
+    width: 44px;
+    height: 44px;
+    margin: 0 auto 16px;
+    border-radius: 10px;
+    background: var(--subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--foreground);
+  }
+
+  .icon-badge svg { width: 22px; height: 22px; }
+
   h1 {
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 600;
     letter-spacing: -0.015em;
     color: var(--foreground);
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   .description {
     font-size: 14px;
     color: var(--muted-foreground);
     line-height: 1.5;
-    margin-bottom: 32px;
+    max-width: 320px;
+    margin: 0 auto;
   }
 
-  .widget-wrap {
-    display: flex;
+  .cta-hint {
+    margin-top: 20px;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    min-height: 100px;
+    gap: 8px;
+    padding: 8px 14px;
+    background: var(--subtle);
+    border-radius: 999px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--foreground);
+  }
+
+  .cta-hint-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #22c55e;
+    flex-shrink: 0;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.45; }
+  }
+
+  .cta-hint-arrow {
+    display: inline-block;
+    color: var(--muted-foreground);
+    font-weight: 400;
   }
 
   .card-footer {
-    padding: 24px 32px 28px;
+    padding: 24px 28px 28px;
     background: var(--muted);
   }
 
   .scenarios-label {
-    font-size: 11px;
+    font-size: 10.5px;
     font-weight: 600;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted-foreground);
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     text-align: center;
   }
 
   .scenarios {
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 12px;
   }
 
   .scenarios li {
-    font-size: 13.5px;
+    font-size: 13px;
     color: var(--foreground);
-    padding: 8px 12px;
-    line-height: 1.5;
+    padding: 8px 10px 8px 18px;
+    line-height: 1.4;
     border-radius: 6px;
-    transition: background 0.15s ease;
+    background: var(--background);
+    border: 1px solid var(--border);
+    position: relative;
+    transition: border-color 0.15s ease;
   }
 
   .scenarios li:hover {
-    background: var(--subtle);
+    border-color: var(--border-strong);
   }
 
   .scenarios li::before {
-    content: "›";
-    color: var(--muted-foreground);
-    margin-right: 10px;
-    font-weight: 500;
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--muted-foreground);
   }
 
   footer {
-    padding: 24px 32px;
+    padding: 20px 32px;
     text-align: center;
     font-size: 12px;
     color: var(--muted-foreground);
@@ -158,9 +200,10 @@
     header { padding: 18px 20px; }
     .logo-kcbj { height: 32px; }
     .logo-cevi { height: 16px; }
-    main { padding: 32px 16px; }
-    .card-header { padding: 32px 24px 24px; }
-    .card-footer { padding: 20px 20px 24px; }
+    main { padding: 24px 16px; }
+    .card-header { padding: 28px 24px 20px; }
+    .card-footer { padding: 20px 18px 22px; }
+    .scenarios { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -184,20 +227,31 @@
 <main>
   <div class="card">
     <div class="card-header">
+      <div class="icon-badge" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+          <line x1="12" y1="19" x2="12" y2="23"></line>
+          <line x1="8" y1="23" x2="16" y2="23"></line>
+        </svg>
+      </div>
       <h1>Speak with the agent</h1>
-      <p class="description">Press to begin. The agent will greet you and handle the conversation as if you were a real caller.</p>
-      <div class="widget-wrap">
-        <elevenlabs-convai agent-id="agent_9701ks0dj4b7f3sv07bxbpj8s328"></elevenlabs-convai>
+      <p class="description">The agent will greet you and handle the call as if you were a real patient.</p>
+      <div class="cta-hint">
+        <span class="cta-hint-dot"></span>
+        <span>Use the widget at the bottom right</span>
+        <span class="cta-hint-arrow">↘</span>
       </div>
     </div>
     <div class="card-footer">
       <div class="scenarios-label">Suggested scenarios</div>
       <ul class="scenarios">
-        <li>Schedule a new patient appointment for knee pain</li>
-        <li>Reschedule an existing visit with Dr. Hiatt</li>
-        <li>Start a workers' compensation intake</li>
-        <li>Verify whether a specific insurance plan is accepted</li>
-        <li>Ask about billing or self-pay pricing</li>
+        <li>Schedule a new patient appointment</li>
+        <li>Reschedule a visit with Dr. Hiatt</li>
+        <li>Start a workers' comp intake</li>
+        <li>Verify an insurance plan</li>
+        <li>Ask about self-pay pricing</li>
+        <li>Get directions or hours</li>
       </ul>
     </div>
   </div>
