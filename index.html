@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kansas City Bone & Joint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --background: #ffffff;
+    --foreground: #09090b;
+    --muted: #fafafa;
+    --muted-foreground: #71717a;
+    --subtle: #f4f4f5;
+    --border: #e4e4e7;
+    --border-strong: #d4d4d8;
+    --card: #ffffff;
+  }
+
+  html, body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--foreground);
+    background: var(--background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo-kcbj {
+    height: 40px;
+    width: auto;
+  }
+
+  .logo-cevi {
+    height: 18px;
+    width: auto;
+    opacity: 0.85;
+  }
+
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 64px 24px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 520px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.04);
+  }
+
+  .card-header {
+    padding: 40px 40px 32px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+
+  h1 {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--foreground);
+    margin-bottom: 8px;
+  }
+
+  .description {
+    font-size: 14px;
+    color: var(--muted-foreground);
+    line-height: 1.5;
+    margin-bottom: 32px;
+  }
+
+  .widget-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+  }
+
+  .card-footer {
+    padding: 24px 32px 28px;
+    background: var(--muted);
+  }
+
+  .scenarios-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .scenarios {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .scenarios li {
+    font-size: 13.5px;
+    color: var(--foreground);
+    padding: 8px 12px;
+    line-height: 1.5;
+    border-radius: 6px;
+    transition: background 0.15s ease;
+  }
+
+  .scenarios li:hover {
+    background: var(--subtle);
+  }
+
+  .scenarios li::before {
+    content: "›";
+    color: var(--muted-foreground);
+    margin-right: 10px;
+    font-weight: 500;
+  }
+
+  footer {
+    padding: 24px 32px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted-foreground);
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 600px) {
+    header { padding: 18px 20px; }
+    .logo-kcbj { height: 32px; }
+    .logo-cevi { height: 16px; }
+    main { padding: 32px 16px; }
+    .card-header { padding: 32px 24px 24px; }
+    .card-footer { padding: 20px 20px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="logo-kcbj" src="./kcbj-logo.webp" alt="Kansas City Bone & Joint" />
+  <svg class="logo-cevi" viewBox="0 0 416 139" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Cevi">
+    <g clip-path="url(#clip0_806_2185)">
+      <path d="M397.5 0.5H415.421V138.464H397.5V0.5Z" fill="#E35336"/>
+      <path d="M304.462 129.854L251.499 0.3H271.823L314.774 110.932C315.875 113.735 319.78 113.735 320.881 110.932L362.631 0.3H380.852L329.892 129.754L329.591 130.355C328.991 131.857 327.99 133.158 326.788 134.46C324.185 137.063 320.981 138.364 317.177 138.364C313.372 138.364 310.168 137.063 307.565 134.46C306.264 133.158 305.263 131.756 304.562 130.155V129.854H304.462ZM189.325 0C199.437 0 208.347 1.802 216.057 5.306C223.766 8.81 230.273 13.516 235.48 19.323C236.781 20.725 237.983 22.226 239.084 23.728C241.987 27.533 240.986 33.039 237.082 35.742L146.874 98.717C148.677 101.921 150.879 104.824 153.382 107.428C157.988 112.233 163.494 116.138 169.902 119.041C176.41 121.945 183.618 123.346 191.628 123.346H192.028C200.238 123.046 208.147 121.044 215.856 117.039C224.066 112.834 230.374 107.127 234.679 99.919L247.294 110.531C240.586 120.643 232.376 127.852 222.564 132.257C213.153 136.462 202.841 138.665 191.527 138.865H190.727C181.015 138.865 171.904 137.063 163.594 133.759C154.984 130.355 147.675 125.549 141.568 119.342C138.364 116.038 135.461 112.434 132.958 108.529C121.444 116.739 106.627 127.351 103.623 129.153C101.12 130.755 98.617 132.157 96.014 133.358C87.804 137.063 78.994 138.965 69.483 138.965C59.971 138.965 50.059 137.263 41.449 133.859C32.839 130.455 25.53 125.649 19.423 119.442C13.316 113.234 8.61 105.926 5.106 97.416C1.702 88.906 0 79.695 0 69.583C0 59.471 1.702 50.16 5.106 41.75C8.51 33.239 13.316 25.931 19.423 19.723C25.53 13.516 32.839 8.71 41.449 5.306C50.059 1.902 59.371 0.2 69.483 0.2C79.595 0.2 88.205 2.203 96.515 6.207C104.824 10.212 112.133 15.819 118.641 23.027L104.925 33.34C100.019 27.833 94.512 23.528 88.605 20.324C82.698 17.22 76.291 15.619 69.483 15.619C62.674 15.619 54.264 17.02 47.757 19.924C41.249 22.827 35.742 26.632 31.237 31.537C26.632 36.443 23.228 42.15 20.825 48.658C18.422 55.266 17.22 62.274 17.22 69.683C17.22 77.092 18.422 84.1 20.825 90.708C23.228 97.316 26.632 103.022 31.237 107.828C35.843 112.634 41.349 116.538 47.757 119.442C54.264 122.345 61.473 123.747 69.483 123.747C77.492 123.747 83.099 122.145 89.006 118.941C94.612 116.038 111.332 104.024 125.849 93.611C123.346 86.202 122.145 78.293 122.145 69.683C122.145 61.073 123.847 50.26 127.251 41.85C130.655 33.34 135.461 26.031 141.568 19.824C147.675 13.616 154.984 8.81 163.594 5.406C172.205 2.002 181.516 0.3 191.628 0.3M216.157 31.738C218.76 29.936 218.76 26.231 216.257 24.329C213.754 22.427 209.949 20.224 206.345 18.822C201.339 16.82 196.133 15.619 190.626 15.418H188.724C181.916 15.719 175.709 17.12 170.002 19.623C163.494 22.527 157.988 26.331 153.482 31.237C148.877 36.143 145.473 41.85 143.07 48.357C140.667 54.965 139.466 61.974 139.466 69.382C139.466 76.791 139.966 78.693 140.967 83.099L216.157 31.738Z" fill="#09090b"/>
+    </g>
+    <defs>
+      <clipPath id="clip0_806_2185">
+        <rect width="415.421" height="138.965" fill="white"/>
+      </clipPath>
+    </defs>
+  </svg>
+</header>
+
+<main>
+  <div class="card">
+    <div class="card-header">
+      <h1>Speak with the agent</h1>
+      <p class="description">Press to begin. The agent will greet you and handle the conversation as if you were a real caller.</p>
+      <div class="widget-wrap">
+        <elevenlabs-convai agent-id="agent_9701ks0dj4b7f3sv07bxbpj8s328"></elevenlabs-convai>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="scenarios-label">Suggested scenarios</div>
+      <ul class="scenarios">
+        <li>Schedule a new patient appointment for knee pain</li>
+        <li>Reschedule an existing visit with Dr. Hiatt</li>
+        <li>Start a workers' compensation intake</li>
+        <li>Verify whether a specific insurance plan is accepted</li>
+        <li>Ask about billing or self-pay pricing</li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<footer>
+  Prepared by Cevi for Kansas City Bone &amp; Joint
+</footer>
+
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+
+</body>
+</html>
