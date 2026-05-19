@@ -60,7 +60,7 @@
 
   .card {
     width: 100%;
-    max-width: 480px;
+    max-width: 460px;
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 14px;
@@ -108,34 +108,19 @@
     margin-top: 20px;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 14px;
-    background: var(--subtle);
+    gap: 10px;
+    padding: 9px 16px;
+    background: var(--foreground);
+    color: var(--background);
     border-radius: 999px;
-    font-size: 12.5px;
+    font-size: 13px;
     font-weight: 500;
-    color: var(--foreground);
   }
 
-  .cta-hint-dot {
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #22c55e;
+  .cta-hint svg {
+    width: 14px;
+    height: 14px;
     flex-shrink: 0;
-    animation: pulse 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.45; }
-  }
-
-  .cta-hint-arrow {
-    display: inline-block;
-    color: var(--muted-foreground);
-    font-weight: 400;
   }
 
   .card-footer {
@@ -155,37 +140,35 @@
 
   .scenarios {
     list-style: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
   }
 
   .scenarios li {
-    font-size: 13px;
+    font-size: 13.5px;
     color: var(--foreground);
-    padding: 8px 10px 8px 18px;
+    padding: 10px 14px;
     line-height: 1.4;
-    border-radius: 6px;
+    border-radius: 8px;
     background: var(--background);
     border: 1px solid var(--border);
-    position: relative;
-    transition: border-color 0.15s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: border-color 0.15s ease, background 0.15s ease;
   }
 
   .scenarios li:hover {
     border-color: var(--border-strong);
+    background: var(--subtle);
   }
 
-  .scenarios li::before {
-    content: "";
-    position: absolute;
-    left: 8px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background: var(--muted-foreground);
+  .scenarios li svg {
+    width: 14px;
+    height: 14px;
+    color: var(--muted-foreground);
+    flex-shrink: 0;
   }
 
   footer {
@@ -203,7 +186,6 @@
     main { padding: 24px 16px; }
     .card-header { padding: 28px 24px 20px; }
     .card-footer { padding: 20px 18px 22px; }
-    .scenarios { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -238,20 +220,60 @@
       <h1>Speak with the agent</h1>
       <p class="description">The agent will greet you and handle the call as if you were a real patient.</p>
       <div class="cta-hint">
-        <span class="cta-hint-dot"></span>
-        <span>Use the widget at the bottom right</span>
-        <span class="cta-hint-arrow">↘</span>
+        <span>Tap the widget in the bottom right to begin</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="7" y1="7" x2="17" y2="17"></line>
+          <polyline points="17,8 17,17 8,17"></polyline>
+        </svg>
       </div>
     </div>
     <div class="card-footer">
       <div class="scenarios-label">Suggested scenarios</div>
       <ul class="scenarios">
-        <li>Schedule a new patient appointment</li>
-        <li>Reschedule a visit with Dr. Hiatt</li>
-        <li>Start a workers' comp intake</li>
-        <li>Verify an insurance plan</li>
-        <li>Ask about self-pay pricing</li>
-        <li>Get directions or hours</li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          Schedule a new patient appointment
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="1 4 1 10 7 10"></polyline>
+            <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+          </svg>
+          Reschedule a visit with Dr. Hiatt
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 7h-3V5a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zm-5 0H9V5h6v2z"></path>
+          </svg>
+          Start a workers' comp intake
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 12l2 2 4-4"></path>
+            <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3M3 12c1 0 3-1 3-3S4 6 3 6 0 7 0 9s2 3 3 3"></path>
+            <path d="M3 12v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+          </svg>
+          Verify an insurance plan
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="12" y1="1" x2="12" y2="23"></line>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          </svg>
+          Ask about self-pay pricing
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          Get directions or hours
+        </li>
       </ul>
     </div>
   </div>
@@ -261,6 +283,7 @@
   Prepared by Cevi for Kansas City Bone &amp; Joint
 </footer>
 
+<elevenlabs-convai agent-id="agent_9701ks0dj4b7f3sv07bxbpj8s328"></elevenlabs-convai>
 <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
 
 </body>
